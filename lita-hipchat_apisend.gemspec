@@ -3,9 +3,9 @@ Gem::Specification.new do |spec|
   spec.version       = "0.0.1"
   spec.authors       = ["Shu Sugimoto"]
   spec.email         = ["shu@su.gimo.to"]
-  spec.description   = %q{TODO: Add a description}
-  spec.summary       = %q{TODO: Add a summary}
-  spec.homepage      = "TODO: Add a homepage"
+  spec.description   = %q{hipchat adapter for lita using API for sending messages}
+  spec.summary       = %q{extended version of lita hipchat adapter. It adds an ability to send messages via HipChat REST API. You can use additional capabilities provided by API e.g. sending HTML formated messages.}
+  spec.homepage      = "https://github.com/s2ugimot/lita-hipchat_apisend"
   spec.license       = "MIT"
   spec.metadata      = { "lita_plugin_type" => "adapter" }
 
