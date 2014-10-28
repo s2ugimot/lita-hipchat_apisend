@@ -21,9 +21,9 @@ end
 class ::Lita::Robot
   def send_messages(target, *strings, option: nil)
     if @adapter.respond_to? :send_messages_with_option
-      @adapter.send_messages_with_option(target, strings.flatten, option: option)
+      adapter.send_messages_with_option(target, strings.flatten, option: option)
     else
-      @adapter.send_messages(target, strings.flatten)
+      adapter.send_messages(target, strings.flatten)
     end
   end
   alias_method :send_message, :send_messages
@@ -33,7 +33,7 @@ class ::Lita::Robot
 
     mention_name = target.user.mention_name
     prefixed_strings = strings.map do |s|
-      "#{@adapter.mention_format(mention_name).strip} #{s}"
+      "#{adapter.mention_format(mention_name).strip} #{s}"
     end
 
     send_messages(target, *prefixed_strings, option: option)
@@ -44,7 +44,12 @@ end
 module Lita
   module Adapters
     class HipChat
-      require_configs :api_token
+
+      # Required attributes
+      config :api_token, type: String, required: true
+
+      # Optional attributes
+      config :api_version, type: String, default: "v2"
 
       attr_reader :api_client
 
