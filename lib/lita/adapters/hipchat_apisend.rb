@@ -43,13 +43,14 @@ end
 
 module Lita
   module Adapters
-    class HipchatApisend < ::Lita::Adapters::HipChat
+    class HipChat
       require_configs :api_token
 
       attr_reader :api_client
 
+      alias_method :initialize_org, :initialize
       def initialize(robot)
-        super robot
+        initialize_org robot
 
         initialize_api
         fill_jid_to_rooms
@@ -103,6 +104,5 @@ module Lita
       end
     end
 
-    Lita.register_adapter(:hipchat_apisend, HipchatApisend)
   end
 end
