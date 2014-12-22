@@ -16,6 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "lita", ">= 4.0"
   spec.add_runtime_dependency "lita-hipchat", ">= 2.0.1"
+  spec.add_runtime_dependency "lita-send_with_option"
   spec.add_runtime_dependency "hipchat"
 
   spec.add_development_dependency "bundler", "~> 1.3"
