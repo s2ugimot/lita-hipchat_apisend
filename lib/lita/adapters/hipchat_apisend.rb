@@ -25,7 +25,7 @@ module Lita
         if target.private_message?
           api_user = api_user_of target.user.id
           strings.each do |s|
-            api_user.send s # option not supported yet on hipchat-rb
+            api_user.send s, option
           end
         else
           api_room = api_room_of target.room
