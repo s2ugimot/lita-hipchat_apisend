@@ -35,7 +35,7 @@ module Lita
         end
       end
 
-      def refresh
+      def refresh_api
         initialize_api
         fill_jid_to_rooms
       end
